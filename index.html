@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<meta name="description" content="The official NirvanaMC player handbook. Survival tips, land claims, economy, progression, and a searchable command reference.">
+<title>NirvanaMC Player Handbook</title>
+<style>
+:root{--bg:#0b1017;--panel:#121a25;--panel2:#172231;--text:#eef4fb;--muted:#9cabbc;--line:#263547;--accent:#66e0c2;--accent2:#82b7ff;--code:#0a111a;--shadow:0 16px 45px #0003}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.shell{max-width:1200px;margin:auto;padding:0 24px}
+header{position:sticky;top:0;z-index:10;background:#0b1017eF;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.04em}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#071018;font-weight:1000}.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.14em;font-weight:700}.toplinks{display:flex;gap:18px;font-size:14px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:34px;padding-top:28px}.sidebar{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;padding:16px 12px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.navlabel{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.14em;padding:8px 10px}.navlink{display:block;padding:8px 10px;border-radius:9px;color:#c6d2df;font-size:14px}.navlink:hover,.navlink.active{background:var(--panel2);color:var(--accent);text-decoration:none}
+main{min-width:0;padding-bottom:80px}.hero{position:relative;overflow:hidden;border:1px solid #284457;border-radius:24px;padding:clamp(28px,6vw,64px);background:radial-gradient(ellipse at 85% 5%,#285b64 0,transparent 35%),linear-gradient(135deg,#172a39,#111923 65%);box-shadow:var(--shadow)}
+.eyebrow{font-size:12px;font-weight:850;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.04;letter-spacing:-.045em;margin:14px 0}.hero p{max-width:650px;color:#c1cedb;font-size:18px}.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.pill{border:1px solid #405367;border-radius:999px;padding:6px 11px;font-size:12px;color:#d3dfeb}
+.searchbox{margin:22px 0 28px;display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--panel);border:1px solid var(--line);border-radius:14px}.searchbox input{width:100%;border:0;outline:0;background:transparent;color:var(--text);font:inherit}.searchbox span{color:var(--muted)}
+.quickgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 42px}.quick{display:block;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;color:var(--text)}.quick strong{display:block;margin-bottom:5px}.quick span{font-size:13px;color:var(--muted)}
+section{margin:42px 0;scroll-margin-top:94px}.sectionhead{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}.number{flex:0 0 40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#183a3c;color:var(--accent);font-weight:900}.sectionhead h2{margin:0;font-size:clamp(24px,3vw,32px);line-height:1.2;letter-spacing:-.025em}.sectionhead p{margin:6px 0 0;color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px;margin:14px 0}.card h3{margin:0 0 10px;font-size:18px}.callout{border-left:3px solid var(--accent);background:#13272b;padding:14px 16px;border-radius:0 12px 12px 0;color:#d5e8e8;margin:18px 0}
+.commands{display:grid;gap:8px}.cmd{display:grid;grid-template-columns:minmax(210px, .8fr) minmax(0,1.2fr);gap:14px;align-items:start;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.cmd code{display:inline-block;background:var(--code);border:1px solid #2a3b4d;border-radius:7px;padding:4px 8px;color:#a9e8dc;font-size:13px;overflow-wrap:anywhere}.cmd p{margin:2px 0;color:#bdc9d6;font-size:14px}.tag{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent2);font-weight:800}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.step{padding:15px;background:var(--panel);border:1px solid var(--line);border-radius:13px}.step b{display:block;color:var(--accent);font-size:12px;letter-spacing:.1em}.step strong{display:block;margin:5px 0}.step p{margin:0;color:var(--muted);font-size:13px}
+.currency{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.currency .card{margin:0}.currency .big{font-size:24px;font-weight:850;color:var(--accent)}
+.hidden{display:none!important}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px;margin-top:60px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:static;max-height:none;display:flex;gap:4px;overflow:auto;white-space:nowrap;padding:8px}.navlabel{display:none}.navlink{flex:0 0 auto}.quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.shell{padding:0 14px}.toplinks{display:none}.hero{padding:28px 22px}.quickgrid,.two,.currency{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.cmd{grid-template-columns:1fr;gap:6px}.cmd code{max-width:100%}.layout{gap:16px;padding-top:16px}}
+</style>
+</head>
+<body>
+<header><div class="shell topbar">
+  <a class="brand" href="#top" aria-label="NirvanaMC handbook home"><span class="logo">N</span><span>NIRVANAMC<small>PLAYER HANDBOOK</small></span></a>
+  <nav class="toplinks"><a href="#getting-started">Getting started</a><a href="#commands">Commands</a><a href="https://play.nirvanamc.com">Play NirvanaMC ↗</a></nav>
+</div></header>
+<div class="shell layout" id="top">
+<aside class="sidebar" aria-label="Handbook navigation">
+  <div class="navlabel">HANDBOOK</div>
+  <a class="navlink active" href="#welcome">Welcome</a><a class="navlink" href="#getting-started">Getting started</a><a class="navlink" href="#travel">Travel & homes</a><a class="navlink" href="#claims">Claims & parties</a><a class="navlink" href="#economy">Money & market</a><a class="navlink" href="#shops">Shops & rewards</a><a class="navlink" href="#progression">Progression</a><a class="navlink" href="#social">Chat & mail</a><a class="navlink" href="#perks">Permanent perks</a><a class="navlink" href="#commands">Command atlas</a>
+</aside>
+<main>
+<div class="hero" id="welcome">
+  <div class="eyebrow">The complete player edition · Version 0.5</div>
+  <h1>Survive.<br>Build. Explore.<br><span style="color:var(--accent)">Belong.</span></h1>
+  <p>Your guide to survival, community, progression, and the commands available to normal players on NirvanaMC.</p>
+  <div class="pills"><span class="pill">Player commands</span><span class="pill">Quick reference</span><span class="pill">Made for mobile</span></div>
+</div>
+<div class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Search commands or handbook topics… (e.g. /claim, coins, home)" aria-label="Search handbook"><span id="count"></span></div>
+<div id="search-results" class="commands hidden"></div>
+<div id="handbook">
+<section id="getting-started">
+  <div class="sectionhead"><div class="number">01</div><div><h2>Start here</h2><p>Your first five minutes in the world.</p></div></div>
+  <div class="steps"><div class="step"><b>01</b><strong>Spawn</strong><p>Meet the hub and merchants.</p></div><div class="step"><b>02</b><strong>Explore</strong><p>Use <code>/rtp</code> to find safe ground.</p></div><div class="step"><b>03</b><strong>Set home</strong><p>Save your route back.</p></div><div class="step"><b>04</b><strong>Claim</strong><p>Protect your first build.</p></div></div>
+  <div class="callout"><strong>Best first move:</strong> use <code>/rtp</code>, set a home with <code>/sethome</code>, then protect the area with <code>/claim select</code>.</div>
+  <div class="two"><div class="card"><h3>How to read commands</h3><p><code>&lt;required&gt;</code> means you must provide a value. <code>[optional]</code> means the command has a usable default.</p></div><div class="card"><h3>Need help?</h3><p>Ask in public chat or speak to a staff member. For menus, read the item description and confirmation before buying.</p></div></div>
+</section>
+<section id="travel">
+  <div class="sectionhead"><div class="number">02</div><div><h2>Travel, homes & teleports</h2><p>Move safely, save important locations, and travel with friends.</p></div></div>
+  <div class="callout">Carry food, tools, and enough supplies for your first shelter. Stay still during random-teleport warm-up and set a home before building.</div>
+  <div class="commands">
+  <div class="cmd" data-search="/spawn travel spawn"><code>/spawn</code><p>Return to the survival spawn.</p></div>
+  <div class="cmd" data-search="/warp name warps travel"><code>/warp &lt;name&gt;</code><p>Travel to a public warp.</p></div>
+  <div class="cmd" data-search="/warps warp list"><code>/warps</code><p>Open the public warp list.</p></div>
+  <div class="cmd" data-search="/rtp random teleport explore"><code>/rtp</code><p>Find a safe random survival location.</p></div>
+  <div class="cmd" data-search="/back previous location return"><code>/back</code><p>Return to your previous saved location.</p></div>
+  <div class="cmd" data-search="/sethome home save location"><code>/sethome [name]</code><p>Save your current location. The default name is <code>home</code>.</p></div>
+  <div class="cmd" data-search="/home homes teleport"><code>/home [name]</code><p>Travel to one of your saved homes.</p></div>
+  <div class="cmd" data-search="/homes list clickable"><code>/homes</code><p>Open your clickable home list.</p></div>
+  <div class="cmd" data-search="/delhome delete home"><code>/delhome &lt;name&gt;</code><p>Delete a saved home.</p></div>
+  <div class="cmd" data-search="/tpa player teleport request"><code>/tpa &lt;player&gt;</code><p>Ask to teleport to another player.</p></div>
+  <div class="cmd" data-search="/tpahere player teleport request"><code>/tpahere &lt;player&gt;</code><p>Ask another player to come to you.</p></div>
+  <div class="cmd" data-search="/tpaccept accept request"><code>/tpaccept [player]</code><p>Accept an incoming teleport request.</p></div>
+  <div class="cmd" data-search="/tpdeny deny request"><code>/tpdeny [player]</code><p>Deny an incoming request.</p></div>
+  <div class="cmd" data-search="/tpcancel cancel request"><code>/tpcancel</code><p>Cancel your outgoing request.</p></div>
+  <div class="cmd" data-search="/tptoggle privacy incoming request"><code>/tptoggle</code><p>Enable or disable incoming requests.</p></div>
+  </div>
+</section>
+<section id="claims">
+  <div class="sectionhead"><div class="number">03</div><div><h2>Land claims & parties</h2><p>Protect your work and share access without giving up ownership.</p></div></div>
+  <div class="steps"><div class="step"><b>01</b><strong>Select</strong><p>Choose the claim area.</p></div><div class="step"><b>02</b><strong>Inspect</strong><p>Check owner and border.</p></div><div class="step"><b>03</b><strong>Trust</strong><p>Add only chosen players.</p></div><div class="step"><b>04</b><strong>Party</strong><p>Share with your group.</p></div></div>
+  <div class="callout">Party members automatically share build and interaction access to land owned by another party member.</div>
+  <div class="commands">
+  <div class="cmd" data-search="/claim select claim land protect"><code>/claim select</code><p>Begin selecting the corners of a land claim.</p></div>
+  <div class="cmd" data-search="/claim info owner inspect"><code>/claim info</code><p>Inspect the claim at your location.</p></div>
+  <div class="cmd" data-search="/claim list owned land"><code>/claim list</code><p>List the land you own.</p></div>
+  <div class="cmd" data-search="/claim show boundaries"><code>/claim show</code><p>Display claim boundaries.</p></div>
+  <div class="cmd" data-search="/claim trust player access"><code>/claim trust &lt;player&gt;</code><p>Share one claim with a player.</p></div>
+  <div class="cmd" data-search="/claim untrust player remove access"><code>/claim untrust &lt;player&gt;</code><p>Remove direct claim access.</p></div>
+  <div class="cmd" data-search="/party create name"><code>/party create &lt;name&gt;</code><p>Create a persistent player party.</p></div>
+  <div class="cmd" data-search="/party invite player five minutes"><code>/party invite &lt;player&gt;</code><p>Invite a player for five minutes.</p></div>
+  <div class="cmd" data-search="/party invites invitations"><code>/party invites</code><p>List invitations waiting for you.</p></div>
+  <div class="cmd" data-search="/party accept decline"><code>/party accept|decline &lt;party&gt;</code><p>Answer a party invitation.</p></div>
+  <div class="cmd" data-search="/party info roles"><code>/party info</code><p>View your party and roles.</p></div>
+  <div class="cmd" data-search="/party chat message private"><code>/party chat &lt;message&gt;</code><p>Talk privately with your party.</p></div>
+  <div class="cmd" data-search="/party leave"><code>/party leave</code><p>Leave your current party.</p></div>
+  </div>
+</section>
+<section id="economy">
+  <div class="sectionhead"><div class="number">04</div><div><h2>Money & the community market</h2><p>Understand the two currencies at a glance.</p></div></div>
+  <div class="currency"><div class="card"><div class="big">NirvanaBucks</div><p>Your normal survival balance for players and merchants. Earn by gathering, selling, trading fairly, voting, and joining events.</p></div><div class="card"><div class="big">NirvanaCoins</div><p>A separate whole-number balance for lasting unlocks and the permanent perk shop.</p></div></div>
+  <div class="callout">NirvanaBucks and NirvanaCoins do not convert into each other. Use <code>/transactions</code> to inspect your own currency history.</div>
+  <div class="commands">
+  <div class="cmd" data-search="/balance bal money"><code>/balance</code><p>View your NirvanaBucks balance. Alias: <code>/bal</code>.</p></div>
+  <div class="cmd" data-search="/pay player amount money transfer"><code>/pay &lt;player&gt; &lt;amount&gt;</code><p>Send NirvanaBucks to another player.</p></div>
+  <div class="cmd" data-search="/baltop leaderboard balance"><code>/baltop [page]</code><p>View the balance leaderboard.</p></div>
+  <div class="cmd" data-search="/transactions history currency"><code>/transactions [page]</code><p>Review your own currency history.</p></div>
+  <div class="cmd" data-search="/coins NirvanaCoins perks shop"><code>/coins</code><p>Open your NirvanaCoins account and permanent perk shop.</p></div>
+  <div class="cmd" data-search="/buycoins checkout packs"><code>/buycoins &lt;80|1000|9000&gt;</code><p>Open secure checkout for a supported coin pack.</p></div>
+  </div>
+</section>
+<section id="shops">
+  <div class="sectionhead"><div class="number">05</div><div><h2>Shops, rewards & cosmetics</h2><p>Menus show item costs, what you own, and what happens next.</p></div></div>
+  <div class="two"><div class="card"><h3>Enchants</h3><p>Hold the pickaxe you want to upgrade before opening the menu.</p></div><div class="card"><h3>Kits</h3><p>Daily, weekly, and monthly kits improve through lasting tiers.</p></div><div class="card"><h3>Crates</h3><p>Preview every reward pool before using a key.</p></div><div class="card"><h3>Pets & particles</h3><p>Cosmetic, peaceful, persistent, and always switchable.</p></div></div>
+  <div class="callout">Open the menu first, read the item description, then confirm only when the price and reward are clear.</div>
+  <div class="commands">
+  <div class="cmd" data-search="/enchants pickaxe upgrade"><code>/enchants</code><p>Buy higher vanilla and custom pickaxe enchantments.</p></div>
+  <div class="cmd" data-search="/kits daily weekly monthly claim upgrade"><code>/kits [daily|weekly|monthly]</code><p>Preview, claim, or upgrade recurring kits.</p></div>
+  <div class="cmd" data-search="/crates settler adventurer mythic keys rewards"><code>/crates [settler|adventurer|mythic]</code><p>View keys, rewards, and crate menus.</p></div>
+  <div class="cmd" data-search="/ranks donor rank shop"><code>/ranks</code><p>Open the permanent NirvanaCoins donor-rank shop.</p></div>
+  <div class="cmd" data-search="/donorranks tiers upgrade costs"><code>/donorranks</code><p>List donor tiers and upgrade costs in chat.</p></div>
+  <div class="cmd" data-search="/pet baby companion collection"><code>/pet</code><p>Open your baby companion collection.</p></div>
+  <div class="cmd" data-search="/particles cosmetic disable equip"><code>/particles</code><p>Buy, equip, or disable cosmetic particles.</p></div>
+  <div class="cmd" data-search="/status toggle donor badge"><code>/status [toggle]</code><p>View benefits or hide your donor badge.</p></div>
+  </div>
+</section>
+<section id="progression">
+  <div class="sectionhead"><div class="number">06</div><div><h2>Progression & adventure</h2><p>Build skills, Nirvana Power, event scores, and lasting milestones.</p></div></div>
+  <div class="steps"><div class="step"><b>01</b><strong>Play</strong><p>Mine, build, trade, and explore.</p></div><div class="step"><b>02</b><strong>Earn</strong><p>Gain XP, Power, and score.</p></div><div class="step"><b>03</b><strong>Upgrade</strong><p>Improve tools and perks.</p></div><div class="step"><b>04</b><strong>Show</strong><p>Compare milestones and ranks.</p></div></div>
+  <div class="commands">
+  <div class="cmd" data-search="/stats daily skills statistics"><code>/stats [daily]</code><p>Open your skills and statistics dashboard.</p></div>
+  <div class="cmd" data-search="/power Nirvana Power level"><code>/power</code><p>View Nirvana Power and level progress.</p></div>
+  <div class="cmd" data-search="/leaderboard stat daily lifetime page"><code>/leaderboard [stat] [daily|lifetime] [page]</code><p>Browse survival and Power leaderboards.</p></div>
+  <div class="cmd" data-search="/daily UTC survival races"><code>/daily</code><p>View today's three UTC survival races.</p></div>
+  <div class="cmd" data-search="/event living world event scores"><code>/event</code><p>View the active living-world event and scores.</p></div>
+  <div class="cmd" data-search="/vote voting milestones"><code>/vote</code><p>Open voting information and your milestone progress.</p></div>
+  <div class="cmd" data-search="/votes permanent vote milestones"><code>/votes</code><p>View all permanent vote milestones.</p></div>
+  <div class="cmd" data-search="/1v1 combat training best of five"><code>/1v1</code><p>Enter or leave private best-of-five combat training.</p></div>
+  <div class="cmd" data-search="/sidebar statistics screen"><code>/sidebar</code><p>Choose which personal statistics appear on screen.</p></div>
+  </div>
+  <div class="card"><h3>Enchant catalogue</h3><p>The enchant catalogue begins with higher vanilla levels, Vein Miner, and Auto Smelt, with room for future expansions.</p></div>
+</section>
+<section id="social">
+  <div class="sectionhead"><div class="number">07</div><div><h2>Chat, mail & personal style</h2><p>Stay connected while keeping control of your inbox, channels, and screen.</p></div></div>
+  <div class="two"><div class="card"><h3>Private chat</h3><p>Message a player, reply quickly, or ignore when you need space.</p></div><div class="card"><h3>Mail</h3><p>Leave a message for a known player even while they are offline.</p></div></div>
+  <div class="commands">
+  <div class="cmd" data-search="/msg tell w private message"><code>/msg &lt;player&gt; &lt;message&gt;</code><p>Send a private message. Aliases: <code>/tell</code>, <code>/w</code>.</p></div>
+  <div class="cmd" data-search="/reply r reply message"><code>/reply &lt;message&gt;</code><p>Reply to your latest private conversation. Alias: <code>/r</code>.</p></div>
+  <div class="cmd" data-search="/ignore player ignored list"><code>/ignore [player]</code><p>Toggle an ignored player or list your ignores.</p></div>
+  <div class="cmd" data-search="/mail read offline message"><code>/mail read</code><p>Read saved mail and mark it as read.</p></div>
+  <div class="cmd" data-search="/mail send player message"><code>/mail send &lt;player&gt; &lt;message&gt;</code><p>Send mail to a known player.</p></div>
+  <div class="cmd" data-search="/mail clear remove read"><code>/mail clear</code><p>Remove mail you have already read.</p></div>
+  <div class="cmd" data-search="/channel global local public chat"><code>/channel &lt;global|local&gt;</code><p>Choose your public chat channel.</p></div>
+  <div class="cmd" data-search="/afk away status"><code>/afk</code><p>Toggle your away status.</p></div>
+  </div>
+  <div class="callout">Use <code>/ignore</code> for personal boundaries, <code>/mail</code> for offline friends, and <code>/sidebar</code> to choose what stays on screen.</div>
+</section>
+<section id="perks">
+  <div class="sectionhead"><div class="number">08</div><div><h2>Permanent command perks</h2><p>NirvanaCoins unlock personal convenience commands. Ownership—not staff rank—enables them.</p></div></div>
+  <div class="two"><div class="card"><h3>Movement</h3><p><code>/fly</code> and <code>/speed</code> change only your personal movement.</p></div><div class="card"><h3>World view</h3><p><code>/ptime</code> and <code>/pweather</code> affect only what you see.</p></div><div class="card"><h3>Portable tools</h3><p>Carry crafting, storage, repair, and renaming tools.</p></div><div class="card"><h3>Cosmetics</h3><p>Wear a held item as a hat and keep your look personal.</p></div></div>
+  <div class="commands">
+  <div class="cmd" data-search="/fly flight toggle"><code>/fly</code><p>Toggle purchased personal flight.</p></div>
+  <div class="cmd" data-search="/ptime time reset day noon night midnight dawn dusk"><code>/ptime &lt;time|reset&gt;</code><p>Choose personal time: day, noon, night, midnight, dawn, or dusk.</p></div>
+  <div class="cmd" data-search="/pweather clear rain reset weather"><code>/pweather &lt;clear|rain|reset&gt;</code><p>Choose personal weather.</p></div>
+  <div class="cmd" data-search="/echest ender chest storage"><code>/echest</code><p>Open your portable ender chest.</p></div>
+  <div class="cmd" data-search="/workbench crafting table"><code>/workbench</code><p>Open a portable crafting table.</p></div>
+  <div class="cmd" data-search="/anvil portable"><code>/anvil</code><p>Open a portable anvil.</p></div>
+  <div class="cmd" data-search="/hat held item cosmetic hat"><code>/hat</code><p>Wear the held item as a cosmetic hat.</p></div>
+  <div class="cmd" data-search="/trash disposable inventory"><code>/trash</code><p>Open a disposable inventory.</p></div>
+  <div class="cmd" data-search="/feed hunger"><code>/feed</code><p>Restore hunger.</p></div>
+  <div class="cmd" data-search="/heal health hunger"><code>/heal</code><p>Restore health and hunger.</p></div>
+  <div class="cmd" data-search="/repair hand all item"><code>/repair [hand|all]</code><p>Repair a held or equipped item.</p></div>
+  <div class="cmd" data-search="/speed walk fly 1 10 reset movement"><code>/speed [walk|fly] &lt;1-10|reset&gt;</code><p>Set personal movement speed.</p></div>
+  <div class="cmd" data-search="/rename name reset item"><code>/rename &lt;name|reset&gt;</code><p>Rename the item in your hand.</p></div>
+  </div>
+  <div class="callout">Before buying a perk: preview the live details, confirm the price and balance, unlock it when ready, then toggle or reset it as needed. The shop displays the live price, donor discount, balance, affordability, and ownership before confirmation.</div>
+</section>
+<section id="commands">
+  <div class="sectionhead"><div class="number">⌕</div><div><h2>Command atlas</h2><p>Every player command, searchable from the bar at the top of this page.</p></div></div>
+  <div class="card"><h3>Quick tips</h3><p>Use the search bar to find a command by name or topic. Commands with angle brackets need a value; square brackets indicate optional values. This handbook intentionally covers player commands only.</p></div>
+</section>
+</div>
+<footer><strong style="color:var(--text)">See you in Nirvana.</strong><br>Build boldly. Trade fairly. Protect your people. Keep discovering.<br><br><a href="https://play.nirvanamc.com">PLAY.NIRVANAMC.COM</a> · NirvanaMC Player Guide · Version 0.5<br>For help, ask in public chat, read the relevant menu description, or speak to a staff member.</footer>
+</main></div>
+<script>
+const input=document.getElementById('search'), results=document.getElementById('search-results'), handbook=document.getElementById('handbook'), count=document.getElementById('count');
+const commands=[...document.querySelectorAll('.cmd')];
+function search(){
+ const q=input.value.trim().toLowerCase();
+ if(!q){results.classList.add('hidden');handbook.classList.remove('hidden');count.textContent='';commands.forEach(c=>c.classList.remove('hidden'));return}
+ handbook.classList.add('hidden');results.classList.remove('hidden');results.innerHTML='';
+ const matches=commands.filter(c=>(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q));
+ matches.forEach(c=>{const clone=c.cloneNode(true);clone.classList.remove('hidden');results.appendChild(clone)});
+ count.textContent=matches.length+' result'+(matches.length===1?'':'s');
+ if(!matches.length)results.innerHTML='<div class="empty">No matches. Try another command or topic.</div>';
+}
+input.addEventListener('input',search);
+document.querySelectorAll('.navlink').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.navlink').forEach(n=>n.classList.remove('active'));a.classList.add('active')}));
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement!==input&&document.activeElement.tagName!=='TEXTAREA'){e.preventDefault();input.focus()}if(e.key==='Escape'){input.value='';search();input.blur()}});
+</script>
+</body></html>
